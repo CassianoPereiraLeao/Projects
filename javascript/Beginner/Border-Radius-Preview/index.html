@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML VIEWER</title>
+    <style>
+        #box {
+            width: 300px;
+            height: 300px;
+            background: #4a90e2;
+            margin: 20px auto;
+        }
+
+        .inputs {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="inputs">
+        <label>Horizontal Top Left</label>
+        <input type="number" id="htl" min="0" max="150" value="0">
+
+        <label>Horizontal Top Right</label>
+        <input type="number" id="htr" min="0" max="150" value="0">
+
+        <label>Horizontal Bottom Right</label>
+        <input type="number" id="hbr" min="0" max="150" value="0">
+
+        <label>Horizontal Bottom Left</label>
+        <input type="number" id="hbl" min="0" max="150" value="0">
+    </div>
+
+    <div class="inputs">
+        <label>Vertical Top Left</label>
+        <input type="number" id="vtl" min="0" max="150" value="0">
+
+        <label>Vertical Top Right</label>
+        <input type="number" id="vtr" min="0" max="150" value="0">
+
+        <label>Vertical Bottom Right</label>
+        <input type="number" id="vbr" min="0" max="150" value="0">
+
+        <label>Vertical Bottom Left</label>
+        <input type="number" id="vbl" min="0" max="150" value="0">
+    </div>
+    
+
+    <div id="box"></div>
+    <script>
+        const box = document.getElementById("box");
+
+        function update() {
+            const htl = document.getElementById("htl").value;
+            const htr = document.getElementById("htr").value;
+            const hbl = document.getElementById("hbl").value;
+            const hbr = document.getElementById("hbr").value;
+            const vtl = document.getElementById("vtl").value;
+            const vtr = document.getElementById("vtr").value;
+            const vbl = document.getElementById("vbl").value;
+            const vbr = document.getElementById("vbr").value;
+
+            box.style.borderRadius = `${htl}px ${htr}px ${hbr}px ${hbl}px / ${vtl}px ${vtr}px ${vbr}px ${vbl}px`;
+        }
+
+        document.querySelectorAll("input").forEach(input => {
+            input.addEventListener("input", update);
+        });
+
+        update();
+    </script>
+</body>
+</html>
