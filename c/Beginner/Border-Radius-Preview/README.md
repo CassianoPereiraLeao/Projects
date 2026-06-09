@@ -3,3 +3,5 @@
 - SDL3
 - SDL3_image
 - SDL3_ttf
+
+![Preview](img/app-preview.png)
